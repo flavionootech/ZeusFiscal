@@ -1,5 +1,3 @@
-using CTe.Classes.Informacoes.Impostos.IBSCBS;
-using CTe.Classes.Informacoes.Valores;
 using DFe.Classes;
 
 namespace CTe.Classes.Informacoes.Impostos

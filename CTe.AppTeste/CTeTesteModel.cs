@@ -1002,27 +1002,27 @@ namespace CTe.AppTeste
 
             cteEletronico.infCte.imp.IBSCBS = new IBSCBS()
             {
-                cClassTrib = cClassTrib.ct000001,
-                CST = CSTIBSCBS.cst000,
-                gIBSCBS =  new gIBSCBS()
+                cClassTrib = Classes.Informacoes.Impostos.cClassTrib.ct000001,
+                CST = Classes.Informacoes.Impostos.CSTIBSCBS.cst000,
+                gIBSCBS = new Classes.Informacoes.Impostos.gIBSCBS
                 {
                     vBC = 0m,
                     vIBS = 0m,
-                    gIBSUF = new gIBSUF()
+                    gIBSUF = new Classes.Informacoes.Impostos.gIBSUF
                     {
                         pIBSUF = 0.1m,
                         vIBSUF = 0m,
                     },
-                    gIBSMun = new gIBSMun()
+                    gIBSMun = new Classes.Informacoes.Impostos.gIBSMun
                     {
                         pIBSMun = 0,
                         vIBSMun = 0,
                     },
-                    gCBS = new gCBS()
+                    gCBS = new Classes.Informacoes.Impostos.gCBS
                     {
                         pCBS = 0.09m,
                         vCBS = 0
-                    },                    
+                    },
                 }
             };
 
