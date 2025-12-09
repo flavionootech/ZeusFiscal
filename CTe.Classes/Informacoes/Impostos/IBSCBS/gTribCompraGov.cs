@@ -1,6 +1,7 @@
-﻿using System.Xml.Serialization;
+﻿using DFe.Classes;
+using System.Xml.Serialization;
 
-namespace NFe.Classes.Informacoes.Detalhe.Tributacao
+namespace CTe.Classes.Informacoes.Impostos.IBSCBS
 {
     public class gTribCompraGov
     {
@@ -11,9 +12,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
         private decimal _pAliqCbs;
         private decimal _vTribCbs;
 
-        /// <summary>
-        /// UB82b - Alíquota do IBS de competência do Estado (em percentual)
-        /// </summary>
         [XmlElement(Order = 1)]
         public decimal pAliqIBSUF
         {
@@ -21,9 +19,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
             set => _pAliqIbsUf = value.Arredondar(4);
         }
 
-        /// <summary>
-        /// UB82c - Valor do Tributo do IBS da UF calculado
-        /// </summary>
         [XmlElement(Order = 2)]
         public decimal vTribIBSUF
         {
@@ -31,9 +26,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
             set => _vTribIbsUf = value.Arredondar(2);
         }
 
-        /// <summary>
-        /// UB82d - Alíquota do IBS de competência do Município (em percentual)
-        /// </summary>
         [XmlElement(Order = 3)]
         public decimal pAliqIBSMun
         {
@@ -41,9 +33,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
             set => _pAliqIbsMun = value.Arredondar(4);
         }
 
-        /// <summary>
-        /// UB82e - Valor do Tributo do IBS do Município calculado
-        /// </summary>
         [XmlElement(Order = 4)]
         public decimal vTribIBSMun
         {
@@ -51,9 +40,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
             set => _vTribIbsMun = value.Arredondar(2);
         }
 
-        /// <summary>
-        /// UB82f - Alíquota da CBS (em percentual)
-        /// </summary>
         [XmlElement(Order = 5)]
         public decimal pAliqCBS
         {
@@ -61,9 +47,6 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
             set => _pAliqCbs = value.Arredondar(4);
         }
 
-        /// <summary>
-        /// UB82g - Valor do Tributo da CBS calculado
-        /// </summary>
         [XmlElement(Order = 6)]
         public decimal vTribCBS
         {
