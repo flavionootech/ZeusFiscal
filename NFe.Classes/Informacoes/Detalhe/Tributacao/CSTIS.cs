@@ -13,6 +13,10 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
         [XmlEnum("200")]
         Is200,
 
+        [Description("Isenção")]
+        [XmlEnum("400")]
+        Is400,
+
         [Description("Imunidade e não incidência")]
         [XmlEnum("410")]
         Is410,
