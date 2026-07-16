@@ -28,6 +28,9 @@ namespace NFe.Classes.Informacoes.Pagamento
     /// </summary>
     public enum FormaPagamento
     {
+        [Description("Não Informado")]
+        [XmlEnum("00")]
+        bcNaoInformado = 00,
         /// <summary>
         /// 01 - Dinheiro
         /// </summary>
