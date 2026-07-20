@@ -189,6 +189,9 @@ namespace NFe.Classes.Informacoes.Pagamento
     /// </summary>
     public enum BandeiraCartao
     {
+        [Description("Não informada")]
+        [XmlEnum("00")]
+        bcNaoInformada = 0,
         /// <summary>
         /// >01 - Visa
         /// </summary>
