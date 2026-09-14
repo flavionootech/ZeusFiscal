@@ -9,6 +9,10 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
         [XmlEnum("000")]
         Is000,
 
+        [Description("Tributada com alíquota zero")]
+        [XmlEnum("010")]
+        Is010,
+
         [Description("Alíquota reduzida")]
         [XmlEnum("200")]
         Is200,
