@@ -101,7 +101,7 @@ namespace NFe.Utils.Validacao
 
         public static void Valida(ServicoNFe servicoNFe, VersaoServico versaoServico, string stringXml, bool loteNfe = true, ConfiguracaoServico cfgServico = null)
         {
-            string pathSchema = string.Empty;
+            var pathSchema = String.Empty;
 
             if (cfgServico == null || (cfgServico != null && string.IsNullOrWhiteSpace(cfgServico.DiretorioSchemas)))
                 pathSchema = ConfiguracaoServico.Instancia.DiretorioSchemas;
@@ -113,26 +113,19 @@ namespace NFe.Utils.Validacao
 
         public static string[] Valida(ServicoNFe servicoNFe, VersaoServico versaoServico, string stringXml, bool loteNfe = true, string pathSchema = null)
         {
-            StringBuilder falhas = new StringBuilder();
+            var falhas = new StringBuilder();
 
             if (!Directory.Exists(pathSchema))
                 throw new Exception("Diretório de Schemas não encontrado: \n" + pathSchema);
 
-            string arquivoSchema = Path.Combine(pathSchema, ObterArquivoSchema(servicoNFe, versaoServico, stringXml, loteNfe));
+            var arquivoSchema = Path.Combine(pathSchema, ObterArquivoSchema(servicoNFe, versaoServico, stringXml, loteNfe));
 
             // Define o tipo de validação
-            XmlReaderSettings cfg = new XmlReaderSettings
-            {
-                ValidationType = ValidationType.Schema, // Previne ataques XXE: nao permite resolver recursos externos
-                DtdProcessing = DtdProcessing.Prohibit,
-                XmlResolver = null
-            };
+            var cfg = new XmlReaderSettings { ValidationType = ValidationType.Schema };
 
             // Carrega o arquivo de esquema
-            XmlSchemaSet schemas = new XmlSchemaSet
-            {
-                XmlResolver = new XmlUrlResolver()
-            };
+            var schemas = new XmlSchemaSet();
+            schemas.XmlResolver = new XmlUrlResolver();
 
             cfg.Schemas = schemas;
             // Quando carregar o eschema, especificar o namespace que ele valida
@@ -144,14 +137,14 @@ namespace NFe.Utils.Validacao
                 string message = args.Message.ToLower().RemoverAcentos();
 
                 if (!(
-
+                    
                     //Está errado o schema. Pois o certo é ser 20 o length e não 28 como está no schema envIECTE_v4.00xsd
-                    (message.Contains("hashtentativaentrega") && message.Contains("o comprimento atual nao e igual")) ||
+                    (message.Contains("hashtentativaentrega") && message.Contains("o comprimento atual nao e igual")) || 
 
                     //erro de orgaoibge que duplicou em alguns xsds porem a receita federal veio a arrumar posteriormente, mesmo assim alguns não atualizam os xsds
                     (message.Contains("tcorgaoibge") && message.Contains("ja foi declarado"))
 
-                //no futuro adicionar novos aqui...
+                    //no futuro adicionar novos aqui...
                 ))
                 {
                     falhas.AppendLine($"[{args.Severity}] - {message} {args.Exception?.Message} " +
@@ -162,13 +155,17 @@ namespace NFe.Utils.Validacao
             };
 
             // cria um leitor para validação
-            XmlReader validator = XmlReader.Create(new StringReader(stringXml), cfg);
+            var validator = XmlReader.Create(new StringReader(stringXml), cfg);
             try
             {
                 // Faz a leitura de todos os dados XML
-                while (validator.Read()) { }
+                while (validator.Read())
+                {
+                }
             }
-            catch { }
+            catch
+            {
+            }
             finally
             {
                 validator.Close();
@@ -179,5 +176,7 @@ namespace NFe.Utils.Validacao
 
             return falhas.ToString().Trim().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
         }
+
+
     }
 }

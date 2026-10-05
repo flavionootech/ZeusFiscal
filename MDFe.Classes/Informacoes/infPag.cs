@@ -26,13 +26,6 @@ namespace MDFe.Classes.Informacoes
             set { vContrato = value.Arredondar(2); }
         }
 
-        public byte? indAltoDesemp { get; set; }
-
-        /// <summary>
-        /// Se null, não aparece no xml
-        /// </summary>
-        public bool indAltoDesempSpecified { get { return indAltoDesemp.HasValue; } }
-
         public indPag indPag { get; set; }
 
         [XmlElement(ElementName = "infPrazo")]

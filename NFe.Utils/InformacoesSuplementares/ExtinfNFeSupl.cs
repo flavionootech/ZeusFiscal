@@ -7,6 +7,8 @@ using NFe.Classes.Informacoes.Identificacao.Tipos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace NFe.Utils.InformacoesSuplementares
@@ -442,10 +444,10 @@ namespace NFe.Utils.InformacoesSuplementares
 
             const string pipe = "|";
 
-            //Chave de Acesso da NFC-e
+            //Chave de Acesso da NFC-e 
             var chave = nfe.infNFe.Id.Substring(3);
 
-            //Identificação do Ambiente (1 – Produção, 2 – Homologação)
+            //Identificação do Ambiente (1 – Produção, 2 – Homologação) 
             var ambiente = (int)nfe.infNFe.ide.tpAmb;
 
             //Identificador do CSC (Código de Segurança do Contribuinte no Banco de Dados da SEFAZ). Informar sem os zeros não significativos
@@ -496,8 +498,8 @@ namespace NFe.Utils.InformacoesSuplementares
         /// </summary>
         public static string ObterUrlQrCode3(this infNFeSupl infNFeSupl, Classes.NFe nfe, VersaoServico versaoServico, ConfiguracaoCertificado cfgCertificado, Encoding encoding = null)
         {
-            if (cfgCertificado == null)
-                throw new ArgumentNullException(nameof(cfgCertificado), "Para gerar a assinatura do QR-Code versão 3.0 EM CONTINGENCIA é necessário informar o certificado digital utilizado na assinatura da NFC-e");
+            if (cfgCertificado == null || string.IsNullOrWhiteSpace(cfgCertificado.Serial))
+                throw new ArgumentNullException("CertificadoDigital", "Para gerar a assinatura do QR-Code versão 3.0 EM CONTINGENCIA é necessário informar o certificado digital utilizado na assinatura da NFC-e, verificar Número de Série e Senha.");
 
             const string pipe = "|";
 

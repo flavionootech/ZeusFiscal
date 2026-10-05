@@ -28,9 +28,6 @@ namespace NFe.Classes.Informacoes.Pagamento
     /// </summary>
     public enum FormaPagamento
     {
-        [Description("Não Informado")]
-        [XmlEnum("00")]
-        bcNaoInformado = 00,
         /// <summary>
         /// 01 - Dinheiro
         /// </summary>
@@ -114,7 +111,7 @@ namespace NFe.Classes.Informacoes.Pagamento
         /// 16 - Depósito Bancário
         /// </summary>
         [Description("=Depósito Bancário")]
-        [XmlEnum("16")] fpDepositoBancario = 16,
+        [XmlEnum("16")] fpDepositoBancario= 16,
 
         /// <summary>
         /// 17 - Pagamento Instantâneo (PIX) dinâmico
@@ -153,30 +150,11 @@ namespace NFe.Classes.Informacoes.Pagamento
         [XmlEnum("22")] fpPagamentoEletronicoNaoInformado = 22,
 
         /// <summary>
-        /// 23 - Pagamento Instantâneo (PIX) - Automático
-        /// </summary>
-        [Description("Pagamento Instantâneo (PIX) - Automático")]
-        [XmlEnum("23")] fpPagamentoInstantaneoPIXAutomatico = 23,
-
-        /// <summary>
-        /// 24 - TEF - "Book Transfer"
-        /// </summary>
-        [Description("TEF - \"Book Transfer\"")]
-        [XmlEnum("24")] fpPagamentoBookTransfer = 24,
-
-        /// <summary>
         /// 90 - Sem pagamento
         /// </summary>
         [Description("Sem pagamento")]
         [XmlEnum("90")]
         fpSemPagamento = 90,
-
-        /// <summary>
-        /// 91 - Pagamento posterior
-        /// </summary>
-        [Description("Pagamento posterior")]
-        [XmlEnum("91")]
-        fpPagamentoPosterior = 91,
 
         /// <summary>
         /// 99 - Outros
@@ -201,9 +179,6 @@ namespace NFe.Classes.Informacoes.Pagamento
     /// </summary>
     public enum BandeiraCartao
     {
-        [Description("Não informada")]
-        [XmlEnum("00")]
-        bcNaoInformada = 0,
         /// <summary>
         /// >01 - Visa
         /// </summary>

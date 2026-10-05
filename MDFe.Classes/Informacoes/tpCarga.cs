@@ -36,8 +36,5 @@ namespace MDFe.Classes.Informacoes
 
         [XmlEnum("11")]
         PerigosaCargaGeral = 11,
-
-        [XmlEnum("12")]
-        GranelPressurizada = 12,
     }
 }

@@ -107,11 +107,6 @@ namespace NFe.Danfe.PdfClown
         {
             if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
 
-            if(path.Contains("../") || path.Contains("..\\"))
-            {
-                throw new Exception("Caminho do arquivo não pode conter ../ ou ..\\");
-            }
-
             using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
             {
                 AdicionarLogoPdf(fs);

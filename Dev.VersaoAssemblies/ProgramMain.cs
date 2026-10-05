@@ -91,11 +91,6 @@ namespace Dev.VersaoAssemblies
 
         private static void AlterarVersaoDoAssembly(string infoFile, string versaoString)
         {
-            if(infoFile.Contains("../") || infoFile.Contains("..\\"))
-            {
-                throw new Exception("Caminho do arquivo não pode conter ../ ou ..\\");
-            }
-
             var content = File.ReadAllText(infoFile);
 
             var regexVersion = new Regex("assembly: AssemblyVersion.+\\)", RegexOptions.IgnoreCase);
