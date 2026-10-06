@@ -6,6 +6,8 @@ namespace NFe.Classes.Informacoes.Detalhe
 {
     public class det
     {
+        private decimal? _vItem;
+
         /// <summary>
         ///     H02 - Número do item do NF
         /// </summary>
@@ -37,5 +39,16 @@ namespace NFe.Classes.Informacoes.Detalhe
         /// </summary>
         [XmlElement(nameof(obsItem))]
         public obsItem obsItem { get; set; }
+
+        public decimal? vItem
+        {
+            get { return _vItem.Arredondar(2); }
+            set { _vItem = value.Arredondar(2); }
+        }
+
+        public bool ShouldSerializevItem()
+        {
+            return vItem.HasValue;
+        }
     }
 }

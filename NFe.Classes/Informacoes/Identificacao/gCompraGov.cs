@@ -17,6 +17,6 @@ namespace NFe.Classes.Informacoes.Identificacao
         }
 
         // B34
-        public TipoOperGov tpOperGov { get; set; }
+        public tpOperGov tpOperGov { get; set; }
     }
 }

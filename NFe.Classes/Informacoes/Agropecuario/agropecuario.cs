@@ -1,4 +1,7 @@
-﻿namespace NFe.Classes.Informacoes.Agropecuario
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
+
+namespace NFe.Classes.Informacoes.Agropecuario
 {
     public class agropecuario
     {
@@ -7,7 +10,8 @@
         /// <summary>
         /// ZF02 - serieGuia
         /// </summary>
-        public defensivo? defensivo { get; set; }
+        [XmlElement("defensivo")]
+        public List<defensivo>? defensivo { get; set; }
 
         /// <summary>
         /// ZF04 - Guia de Trânsito
@@ -26,7 +30,8 @@
         /// <summary>
         /// ZF02 - serieGuia
         /// </summary>
-        public defensivo defensivo { get; set; }
+        [XmlElement("defensivo")]
+        public List<defensivo> defensivo { get; set; }
 
         /// <summary>
         /// ZF04 - Guia de Trânsito

@@ -159,6 +159,10 @@ namespace NFe.Classes.Informacoes.Identificacao
         /// </summary>
         public FinalidadeNFe finNFe { get; set; }
 
+        public TipoNFeDebito? tpNFDebito { get; set; }
+
+        public TipoNFeCredito? tpNFCredito { get; set; }
+
         /// <summary>
         ///     B25a - Indica operação com consumidor final
         /// </summary>
@@ -218,6 +222,16 @@ namespace NFe.Classes.Informacoes.Identificacao
         /// </summary>
         [XmlElement("NFref")]
         public List<NFref> NFref { get; set; }
+
+        public bool ShouldSerializetpNFDebito()
+        {
+            return tpNFDebito.HasValue;
+        }
+
+        public bool ShouldSerializetpNFCredito()
+        {
+            return tpNFCredito.HasValue;
+        }
 
         public bool ShouldSerializeidDest()
         {

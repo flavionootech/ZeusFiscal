@@ -267,7 +267,15 @@ namespace NFe.Classes.Informacoes.Identificacao.Tipos
         /// </summary>
         [Description("Devolução de mercadoria")]
         [XmlEnum("4")]
-        fnDevolucao = 4
+        fnDevolucao = 4,
+
+        [Description("Nota de Crédito")]
+        [XmlEnum("5")]
+        fnNotaCredito = 5,
+
+        [Description("Nota de Débito")]
+        [XmlEnum("6")]
+        fnNotaDebito = 6
     }
 
     /// <summary>
@@ -464,5 +472,63 @@ namespace NFe.Classes.Informacoes.Identificacao.Tipos
         [Description("Modelo 02")]
         [XmlEnum("02")]
         modelo2 = 2
+    }
+
+    public enum TipoNFeCredito
+    {
+        [Description("Multa e juros")]
+        [XmlEnum("01")]
+        tcMultaEJuros = 1,
+
+        [Description("Apropriação de crédito presumido de IBS sobre o saldo devedor na ZFM (art. 450, § 1º, LC 214/25)")]
+        [XmlEnum("02")]
+        tcApropiacaoCreditoPresumido = 2,
+
+        [Description("Retorno por recusa na entrega ou por não localização do destinatário na tentativa de entrega")]
+        [XmlEnum("03")]
+        tcRetornoRecusaNaoLocalizacaoEntrega = 3,
+
+        [Description("Redução de valores")]
+        [XmlEnum("04")]
+        tcReducaoValores = 4,
+
+        [Description("Transferência de crédito na sucessão")]
+        [XmlEnum("05")]
+        tcTransferenciaCreditoSucessao = 5
+    }
+
+    public enum TipoNFeDebito
+    {
+        [Description("Transferência de créditos para Cooperativas;")]
+        [XmlEnum("01")]
+        tdTransferenciaCreditoCooperativa = 1,
+
+        [Description("Anulação de Crédito por Saídas Imunes/Isentas;")]
+        [XmlEnum("02")]
+        tdAnulacao = 2,
+
+        [Description("Débitos de notas fiscais não processadas na apuração;")]
+        [XmlEnum("03")]
+        tdDebitosNaoProcessadas = 3,
+
+        [Description("Multa e juros;")]
+        [XmlEnum("04")]
+        tdMultaJuros = 4,
+
+        [Description("Transferência de crédito na sucessão;")]
+        [XmlEnum("05")]
+        tdTransferenciaCreditoSucessao = 5,
+
+        [Description("Pagamento antecipado")]
+        [XmlEnum("06")]
+        tdPagamentoAntecipado = 6,
+
+        [Description("Perda em estoque")]
+        [XmlEnum("07")]
+        tdPerdaEmEstoque = 7,
+
+        [Description("Desenquadramento do SN")]
+        [XmlEnum("08")]
+        tdDesenquadramentoSN = 8
     }
 }

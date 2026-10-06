@@ -62,6 +62,8 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
         /// </summary>
         public ICMSUFDest ICMSUFDest { get; set; }
 
+        public IBSCBS IBSCBS { get; set; }
+
         public bool ShouldSerializevTotTrib()
         {
             return vTotTrib.HasValue;
