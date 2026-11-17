@@ -9,6 +9,9 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         private decimal? _pRedBc;
         private decimal? _pIcms;
         private decimal? _vIcms;
+        private decimal? _vIcmsOp;
+        private decimal? _pDif;
+        private decimal? _vIcmsDif;
         private decimal? _pMvast;
         private decimal? _pRedBcst;
         private decimal? _vBcst;
@@ -71,10 +74,46 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
             set { _pIcms = value.Arredondar(4); }
         }
 
+        [XmlElement(Order = 7)]
+        public decimal? vICMSOp
+        {
+            get { return _vIcmsOp.Arredondar(2); }
+            set { _vIcmsOp = value.Arredondar(2); }
+        }
+
+        public bool ShouldSerializevICMSOp()
+        {
+            return vICMSOp.HasValue;
+        }
+
+        [XmlElement(Order = 8)]
+        public decimal? pDif
+        {
+            get { return _pDif.Arredondar(4); }
+            set { _pDif = value.Arredondar(4); }
+        }
+
+        public bool ShouldSerializepDif()
+        {
+            return pDif.HasValue;
+        }
+
+        [XmlElement(Order = 9)]
+        public decimal? vICMSDif
+        {
+            get { return _vIcmsDif.Arredondar(2); }
+            set { _vIcmsDif = value.Arredondar(2); }
+        }
+
+        public bool ShouldSerializevICMSDif()
+        {
+            return vICMSDif.HasValue;
+        }
+
         /// <summary>
         ///     N17 - Valor do ICMS
         /// </summary>
-        [XmlElement(Order = 7)]
+        [XmlElement(Order = 10)]
         public decimal? vICMS
         {
             get { return _vIcms.Arredondar(2); }
@@ -85,7 +124,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N17a - Valor da Base de Cálculo do FCP
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 8)]
+        [XmlElement(Order = 11)]
         public decimal? vBCFCP
         {
             get { return _vBcfcp.Arredondar(2); }
@@ -101,7 +140,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N17b - Percentual do Fundo de Combate à Pobreza (FCP)
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 9)]
+        [XmlElement(Order = 12)]
         public decimal? pFCP
         {
             get { return _pFcp.Arredondar(4); }
@@ -117,7 +156,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N17c - Valor do Fundo de Combate à Pobreza (FCP)
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 10)]
+        [XmlElement(Order = 13)]
         public decimal? vFCP
         {
             get { return _vFcp.Arredondar(2); }
@@ -132,13 +171,13 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N18 - Modalidade de determinação da BC do ICMS ST
         /// </summary>
-        [XmlElement(Order = 11)]
+        [XmlElement(Order = 14)]
         public DeterminacaoBaseIcmsSt? modBCST { get; set; }
 
         /// <summary>
         ///     N19 - Percentual da margem de valor Adicionado do ICMS ST
         /// </summary>
-        [XmlElement(Order = 12)]
+        [XmlElement(Order = 15)]
         public decimal? pMVAST
         {
             get { return _pMvast.Arredondar(4); }
@@ -148,7 +187,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N20 - Percentual da Redução de BC do ICMS ST
         /// </summary>
-        [XmlElement(Order = 13)]
+        [XmlElement(Order = 16)]
         public decimal? pRedBCST
         {
             get { return _pRedBcst.Arredondar(4); }
@@ -158,7 +197,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N21 - Valor da BC do ICMS ST
         /// </summary>
-        [XmlElement(Order = 14)]
+        [XmlElement(Order = 17)]
         public decimal? vBCST
         {
             get { return _vBcst.Arredondar(2); }
@@ -168,7 +207,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N22 - Alíquota do imposto do ICMS ST
         /// </summary>
-        [XmlElement(Order = 15)]
+        [XmlElement(Order = 18)]
         public decimal? pICMSST
         {
             get { return _pIcmsst.Arredondar(4); }
@@ -178,7 +217,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N23 - Valor do ICMS ST
         /// </summary>
-        [XmlElement(Order = 16)]
+        [XmlElement(Order = 19)]
         public decimal? vICMSST
         {
             get { return _vIcmsst.Arredondar(2); }
@@ -189,7 +228,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N23a - Valor da Base de Cálculo do FCP retido por Substituição Tributária
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 17)]
+        [XmlElement(Order = 20)]
         public decimal? vBCFCPST
         {
             get { return _vBcfcpst.Arredondar(2); }
@@ -205,7 +244,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N23b - Percentual do FCP retido por Substituição Tributária
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 18)]
+        [XmlElement(Order = 21)]
         public decimal? pFCPST
         {
             get { return _pFcpst.Arredondar(4); }
@@ -221,7 +260,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N23d - Valor do FCP retido por Substituição Tributária
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 19)]
+        [XmlElement(Order = 22)]
         public decimal? vFCPST
         {
             get { return _vFcpst.Arredondar(2); }
@@ -236,7 +275,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N27a - Valor do ICMS desonerado
         /// </summary>
-        [XmlElement(Order = 20)]
+        [XmlElement(Order = 23)]
         public decimal? vICMSDeson
         {
             get { return _vIcmsDeson.Arredondar(2); }
@@ -246,21 +285,21 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// <summary>
         ///     N28 - Motivo da desoneração do ICMS
         /// </summary>
-        [XmlElement(Order = 21)]
+        [XmlElement(Order = 24)]
         public MotivoDesoneracaoIcms? motDesICMS { get; set; }
         
         /// <summary>
         /// N28b - Indica se o valor do ICMS desonerado (vICMSDeson) deduz 
         /// do valor do item (vProd). (NT 2023.004) 
         /// </summary>
-        [XmlElement(Order = 22)]
+        [XmlElement(Order = 25)]
         public DeduzDesoneracaoNoProduto? indDeduzDeson { get; set; }
 
         /// <summary>
         /// N33a - Valor do ICMS- ST desonerado
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 23)]
+        [XmlElement(Order = 26)]
         public decimal? vICMSSTDeson
         {
             get { return _vICMSSTDeson.Arredondar(2); }
@@ -276,7 +315,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao.Estadual
         /// N33b - Motivo da desoneração do ICMS- ST 
         /// Versão 4.00
         /// </summary>
-        [XmlElement(Order = 24)]
+        [XmlElement(Order = 27)]
         public MotivoDesoneracaoIcmsSt? motDesICMSST { get; set; }
 
         public bool ShouldSerializemotDesICMSST()

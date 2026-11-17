@@ -183,6 +183,8 @@ namespace NFe.Classes.Informacoes.Identificacao
             get { return indIntermed.HasValue; }
         }
 
+        public string cIndOp { get; set; }
+
         /// <summary>
         ///     B26 - Processo de emissão utilizado com a seguinte codificação:
         /// </summary>

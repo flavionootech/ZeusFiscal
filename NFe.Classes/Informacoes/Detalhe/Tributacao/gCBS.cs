@@ -27,8 +27,11 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
         [XmlElement(Order = 4)]
         public gRed gRed { get; set; }
 
-        // UB67
         [XmlElement(Order = 5)]
+        public gALCZFMCBS gALCZFMCBS { get; set; }
+
+        // UB67
+        [XmlElement(Order = 6)]
         public decimal vCBS
         {
             get => _vGBS.Arredondar(2);

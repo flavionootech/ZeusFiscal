@@ -17,7 +17,7 @@ namespace NFe.Classes.Informacoes.Detalhe.Tributacao
 
         // UB70
         [XmlElement(Order = 2)]
-        public cClassTrib cClassTribReg { get; set; }
+        public string cClassTribReg { get; set; }
 
         // UB71
         [XmlElement(Order = 3)]

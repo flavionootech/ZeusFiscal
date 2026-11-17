@@ -101,5 +101,7 @@ namespace NFe.Classes.Informacoes.Emitente
         /// </summary>
         public CRT CRT { get; set; }
 
+        public string ISUFEmit { get; set; }
+
     }
 }

@@ -46,6 +46,8 @@ namespace NFe.Classes.Informacoes.Detalhe
             set { _vItem = value.Arredondar(2); }
         }
 
+        public DFeReferenciado DFeReferenciado { get; set; }
+
         public bool ShouldSerializevItem()
         {
             return vItem.HasValue;

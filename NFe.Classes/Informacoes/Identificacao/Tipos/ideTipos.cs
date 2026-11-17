@@ -494,7 +494,11 @@ namespace NFe.Classes.Informacoes.Identificacao.Tipos
 
         [Description("Transferência de crédito na sucessão")]
         [XmlEnum("05")]
-        tcTransferenciaCreditoSucessao = 5
+        tcTransferenciaCreditoSucessao = 5,
+
+        [Description("Retorno por recusa parcial na entrega")]
+        [XmlEnum("06")]
+        tcRetornoRecusaParcialEntrega = 6
     }
 
     public enum TipoNFeDebito
